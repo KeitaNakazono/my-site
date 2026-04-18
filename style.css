@@ -554,6 +554,47 @@ a {
   font-size: 0.76rem;
 }
 
+/* ===== ページヘッダー（サブページ用） ===== */
+.page-hero {
+  background: linear-gradient(135deg, #0a1432 0%, #0f2a5e 55%, #0d3880 100%);
+  padding: 140px 32px 80px;
+  color: #fff;
+}
+
+/* ===== セクション CTA ===== */
+.section-cta {
+  margin-top: 48px;
+  text-align: center;
+}
+
+/* ===== サービスカード（インデックス用） ===== */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.service-card {
+  background: #fff;
+  padding: 40px 32px;
+  border: 1px solid #dde4ef;
+}
+
+.service-card-num {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: #0055aa;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.service-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+}
+
 /* ===== レスポンシブ ===== */
 @media (max-width: 768px) {
   .section {
@@ -580,6 +621,10 @@ a {
   }
 
   .activities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-cards {
     grid-template-columns: 1fr;
   }
 
