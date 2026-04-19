@@ -554,6 +554,60 @@ a {
   font-size: 0.76rem;
 }
 
+/* ===== ナビ ドロップダウン ===== */
+.has-dropdown {
+  position: relative;
+}
+
+.nav-arrow {
+  font-size: 0.65rem;
+  margin-left: 3px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+
+.has-dropdown:hover .nav-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 20, 50, 0.97);
+  backdrop-filter: blur(8px);
+  min-width: 180px;
+  list-style: none;
+  padding: 8px 0;
+  display: none;
+  border-top: 2px solid #0055aa;
+  z-index: 200;
+}
+
+.has-dropdown:hover .nav-dropdown {
+  display: block;
+}
+
+.nav-dropdown li a {
+  display: block;
+  padding: 11px 20px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65) !important;
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+}
+
+.nav-dropdown li a:hover {
+  color: #fff !important;
+  background: rgba(255,255,255,0.06);
+}
+
+/* scroll時に固定ナビに隠れないように */
+[id] {
+  scroll-margin-top: 90px;
+}
+
 /* ===== ページヘッダー（サブページ用） ===== */
 .page-hero {
   background: linear-gradient(135deg, #0a1432 0%, #0f2a5e 55%, #0d3880 100%);

@@ -51,13 +51,20 @@
   <!-- ナビゲーション -->
   <nav class="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Keita Nakazono</a>
+      <a href="/" class="nav-logo">Keita Nakazono</a>
       <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="service.html">Service</a></li>
-        <li><a href="works.html">Works</a></li>
-        <li><a href="activities.html">Activities</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="has-dropdown">
+          <a href="/service">Service <span class="nav-arrow">▾</span></a>
+          <ul class="nav-dropdown">
+            <li><a href="/service#health">健康運動指導</a></li>
+            <li><a href="/service#community">地域コミュニティ</a></li>
+            <li><a href="/service#ai-web">AI・Web技術</a></li>
+          </ul>
+        </li>
+        <li><a href="/works">Works</a></li>
+        <li><a href="/activities">Activities</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -72,7 +79,7 @@
           地域の方々の健康を支えながら、<br>
           WebサイトやAIの力で新しいことに挑戦しています。
         </p>
-        <a href="about.html" class="btn-outline btn-outline--light">
+        <a href="/about" class="btn-outline btn-outline--light">
           プロフィールを見る <span class="arrow">→</span>
         </a>
       </div>
@@ -100,7 +107,7 @@
         </div>
       </div>
       <div class="section-cta">
-        <a href="service.html" class="btn-outline btn-outline--dark">サービス詳細を見る <span class="arrow">→</span></a>
+        <a href="/service" class="btn-outline btn-outline--dark">サービス詳細を見る <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -156,7 +163,7 @@
         </div>
       </div>
       <div class="section-cta">
-        <a href="works.html" class="btn-outline btn-outline--light">制作物の詳細を見る <span class="arrow">→</span></a>
+        <a href="/works" class="btn-outline btn-outline--light">制作物の詳細を見る <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -194,7 +201,7 @@
         </div>
       </div>
       <div class="section-cta">
-        <a href="activities.html" class="btn-outline btn-outline--dark">活動の詳細を見る <span class="arrow">→</span></a>
+        <a href="/activities" class="btn-outline btn-outline--dark">活動の詳細を見る <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -208,7 +215,7 @@
         まずは自分を知ってもらうためのサイトです。<br>
         気軽に見ていただけると嬉しいです。ご連絡もお待ちしています。
       </p>
-      <a href="contact.html" class="btn-outline btn-outline--light btn-contact">
+      <a href="/contact" class="btn-outline btn-outline--light btn-contact">
         お問い合わせフォームへ <span class="arrow">→</span>
       </a>
     </div>
@@ -217,7 +224,7 @@
   <!-- フッター -->
   <footer class="footer">
     <div class="footer-inner">
-      <a href="index.html" class="footer-logo">Keita Nakazono</a>
+      <a href="/" class="footer-logo">Keita Nakazono</a>
       <p class="footer-copy">© 2026 中薗 圭汰</p>
     </div>
   </footer>

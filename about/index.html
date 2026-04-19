@@ -5,51 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | 中薗 圭汰 プロフィール</title>
   <meta name="description" content="中薗圭汰のプロフィール。NPO法人での地域健康支援活動、健康運動指導士資格の活用、AI・Web技術の学習など自己紹介をご覧いただけます。">
-
   <meta property="og:title" content="About | 中薗 圭汰 プロフィール">
   <meta property="og:description" content="NPO法人で活動する健康運動指導士・中薗圭汰のプロフィールページです。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://keita-works.com/about.html">
+  <meta property="og:url" content="https://keita-works.com/about">
   <meta property="og:image" content="https://keita-works.com/ogimage.png">
   <meta property="og:site_name" content="KEITA WORKS">
   <meta property="og:locale" content="ja_JP">
-
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About | 中薗 圭汰 プロフィール">
   <meta name="twitter:description" content="NPO法人で活動する健康運動指導士・中薗圭汰のプロフィールページです。">
   <meta name="twitter:image" content="https://keita-works.com/ogimage.png">
-
   <meta name="author" content="中薗圭汰">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://keita-works.com/about.html">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "中薗圭汰",
-    "url": "https://keita-works.com/",
-    "image": "https://keita-works.com/sozai_1.jpg",
-    "jobTitle": "健康運動指導士",
-    "description": "NPO法人で活動する健康運動指導士。高齢者向け運動指導や地域コミュニティ形成に携わりながら、AI・Web技術も学習中。",
-    "knowsAbout": ["健康運動指導", "地域コミュニティ", "HTML", "CSS", "AI活用"]
-  }
-  </script>
-
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://keita-works.com/about">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
   <nav class="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Keita Nakazono</a>
+      <a href="/" class="nav-logo">Keita Nakazono</a>
       <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="service.html">Service</a></li>
-        <li><a href="works.html">Works</a></li>
-        <li><a href="activities.html">Activities</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="has-dropdown">
+          <a href="/service">Service <span class="nav-arrow">▾</span></a>
+          <ul class="nav-dropdown">
+            <li><a href="/service#health">健康運動指導</a></li>
+            <li><a href="/service#community">地域コミュニティ</a></li>
+            <li><a href="/service#ai-web">AI・Web技術</a></li>
+          </ul>
+        </li>
+        <li><a href="/works">Works</a></li>
+        <li><a href="/activities">Activities</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -65,7 +55,7 @@
     <div class="container">
       <div class="about-body">
         <div class="about-visual">
-          <img src="sozai_1.jpg" alt="中薗圭汰" class="about-img">
+          <img src="/sozai_1.jpg" alt="中薗圭汰" class="about-img">
         </div>
         <div class="about-text">
           <p>
@@ -74,7 +64,7 @@
             他にも、道の駅接客、高校寮監など、地域の方々と寄り添う仕事をしています。<br>
             現在はAI・Web技術を学びながら、WebサイトやアプリといったITの力で地域や人の役に立てる新しい形を模索中です。
           </p>
-          <a href="contact.html" class="btn-outline btn-outline--dark">
+          <a href="/contact" class="btn-outline btn-outline--dark">
             お問い合わせ <span class="arrow">→</span>
           </a>
         </div>
@@ -84,7 +74,7 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <a href="index.html" class="footer-logo">Keita Nakazono</a>
+      <a href="/" class="footer-logo">Keita Nakazono</a>
       <p class="footer-copy">© 2026 中薗 圭汰</p>
     </div>
   </footer>
