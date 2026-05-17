@@ -307,6 +307,9 @@ a {
 }
 
 .work-card {
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
   background: #0e1e4a;
   transition: background 0.25s;
 }
@@ -328,7 +331,10 @@ a {
 }
 
 .work-card-body {
-  padding: 24px 28px 32px;
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  padding: 0 28px;
 }
 
 .work-card-num {
@@ -336,28 +342,35 @@ a {
   letter-spacing: 0.2em;
   color: #4a90d9;
   font-weight: 700;
-  margin-bottom: 10px;
+  padding-top: 24px;
+  align-self: end;
 }
 
+.work-card h2,
 .work-card h3 {
   font-size: 1rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 10px;
   line-height: 1.5;
+  padding-top: 10px;
+  align-self: start;
 }
 
 .work-card p {
   font-size: 0.84rem;
   color: rgba(255,255,255,0.55);
   line-height: 1.8;
-  margin-bottom: 16px;
+  padding-top: 10px;
+  align-self: start;
 }
 
 .work-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  padding-top: 16px;
+  padding-bottom: 32px;
+  align-self: start;
 }
 
 .tag {
