@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | 整体屋　まんきち</title>
+  <meta name="description" content="整体屋まんきちのお問い合わせページ。ポートフォリオ用のサンプルのため送信はできません。">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="no-bg-image">
+  <div class="demo-banner">
+    <p>
+      <strong>ポートフォリオ用のサンプルサイトです。</strong>
+      「整体屋　まんきち」は架空の店舗で、実在しません。予約・お問い合わせはできません。
+      <a href="/works/">制作事例の一覧へ戻る</a>
+    </p>
+  </div>
+
+  <header class="site-header">
+    <div class="inner">
+      <a href="index.html" class="site-title">整体屋　まんきち</a>
+      <nav class="site-nav">
+        <a href="index.html">ホーム</a>
+        <a href="about.html">店舗概要</a>
+        <a href="price.html">料金</a>
+        <a href="questionnaire.html">問診票</a>
+        <a href="contact.html" class="active">問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>お問い合わせ</h1>
+    <p>ご予約・ご質問は下記フォームよりお送りください。</p>
+
+    <p class="form-disabled-note">
+      <strong>このフォームは送信できません。</strong>
+      ポートフォリオ用のサンプルサイトのため、入力内容はどこにも送信されず、保存もされません。
+      画面の作りと入力項目の設計をご確認ください。
+    </p>
+
+    <!-- ポートフォリオ用サンプルのため送信先は設定していない -->
+    <form class="contact-form" id="demo-form">
+      <label for="name">お名前 <span class="required">（必須）</span></label>
+      <input type="text" id="name" name="name" required placeholder="山田 太郎">
+
+      <label for="name-kana">ふりがな</label>
+      <input type="text" id="name-kana" name="name_kana" placeholder="やまだ たろう">
+
+      <label for="email">メールアドレス <span class="required">（必須）</span></label>
+      <input type="email" id="email" name="email" required placeholder="example@email.com">
+
+      <label for="tel">電話番号</label>
+      <input type="tel" id="tel" name="tel" placeholder="090-1234-5678">
+
+      <label for="subject">お問い合わせ種別</label>
+      <input type="text" id="subject" name="subject" placeholder="例：予約希望・料金について・その他">
+
+      <label for="message">お問い合わせ内容 <span class="required">（必須）</span></label>
+      <textarea id="message" name="message" required placeholder="ご予約の場合はご希望の日時・プランもご記入ください。"></textarea>
+
+      <div class="submit-wrap">
+        <button type="submit">送信する</button>
+      </div>
+      <p class="demo-form-result" id="demo-form-result" hidden>
+        ポートフォリオ用のサンプルのため、送信は行われませんでした。
+      </p>
+    </form>
+
+    <script>
+      (function () {
+        var form = document.getElementById('demo-form');
+        var result = document.getElementById('demo-form-result');
+        if (!form) return;
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          result.hidden = false;
+          result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      })();
+    </script>
+
+    <nav class="page-nav">
+      <h2 class="visually-hidden">ページ内リンク</h2>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="about.html">店舗概要</a></li>
+        <li><a href="price.html">料金プラン</a></li>
+        <li><a href="questionnaire.html">問診票</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 整体屋　まんきち（架空店舗）</p>
+      <p class="demo-footer-note">自主制作サンプル / 制作: <a href="/works/">中薗 圭汰</a></p>
+      <ul class="footer-nav">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="about.html">店舗概要</a></li>
+        <li><a href="price.html">料金プラン</a></li>
+        <li><a href="questionnaire.html">問診票</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

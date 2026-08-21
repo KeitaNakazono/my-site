@@ -1,0 +1,612 @@
+/* 整体屋 まんきち - 共通スタイル */
+:root {
+  --brown-dark: #3d2914;
+  --brown-mid: #5c4033;
+  --brown-light: #8b7355;
+  --beige: #c4a574;
+  --beige-light: #e8dcc8;
+  --cream: #f5f0e6;
+  --text-dark: #2c1810;
+  --shadow: rgba(61, 41, 20, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  background: linear-gradient(135deg, #e8dfd0 0%, #d4c4a8 50%, #c9b896 100%);
+  color: var(--text-dark);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 背景画像用（のちに画像を指定可能） */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/bg.jpg") center/cover no-repeat;
+  opacity: 0.12;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 背景画像がない場合のフォールバック */
+body.no-bg-image::before {
+  background: linear-gradient(135deg, rgba(232, 223, 208, 0.95) 0%, rgba(212, 196, 168, 0.9) 100%);
+  opacity: 1;
+}
+
+/* ヘッダー・ナビ */
+.site-header {
+  background: rgba(61, 41, 20, 0.92);
+  color: var(--beige-light);
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+
+.site-header .inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.site-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--beige-light);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.site-title:hover {
+  opacity: 0.9;
+  color: var(--beige-light);
+}
+
+.site-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--beige-light);
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  background: var(--beige);
+  color: var(--brown-dark);
+}
+
+/* ヒーロー（トップページ） */
+.hero {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  text-align: center;
+}
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.08em;
+  border: none;
+  padding: 0;
+}
+.hero-lead {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--brown-mid);
+  max-width: 32em;
+  margin: 0 auto 2rem;
+}
+.hero-cta {
+  margin-top: 2rem;
+}
+.hero-cta .btn-primary,
+.hero-cta .btn-secondary {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 24px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  margin: 0 0.35rem;
+}
+.hero-cta .btn-primary {
+  background: var(--brown-mid);
+  color: var(--beige-light);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+.hero-cta .btn-primary:hover {
+  background: var(--brown-dark);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+.hero-cta .btn-secondary {
+  background: var(--cream);
+  color: var(--brown-dark);
+  border: 2px solid var(--brown-light);
+}
+.hero-cta .btn-secondary:hover {
+  background: var(--beige-light);
+  border-color: var(--brown-mid);
+}
+
+/* 日記（ホーム下） */
+.diary {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+.diary-heading {
+  font-size: 1.25rem;
+  color: var(--brown-mid);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--brown-light);
+}
+.diary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.diary-empty {
+  color: var(--brown-light);
+  font-size: 0.95rem;
+  padding: 1rem 0;
+}
+.diary-item {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 10px var(--shadow);
+  border-left: 4px solid var(--brown-light);
+}
+.diary-date {
+  font-size: 0.85rem;
+  color: var(--brown-light);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+.diary-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+  margin-bottom: 0.5rem;
+}
+.diary-body {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+/* ページ下部ナビ（各ページに飛ぶリンク） */
+.page-nav {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(139, 115, 85, 0.3);
+}
+.page-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+}
+.page-nav a {
+  color: var(--brown-mid);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.page-nav a:hover {
+  background: var(--beige-light);
+  color: var(--brown-dark);
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* フッター */
+.site-footer {
+  background: var(--brown-dark);
+  color: var(--beige-light);
+  margin-top: auto;
+  padding: 1.5rem 1.5rem 2rem;
+}
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+.footer-copy {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+}
+.footer-nav a {
+  color: var(--beige-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.footer-nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* メインコンテンツ */
+main {
+  flex: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main h1 {
+  font-size: 1.75rem;
+  color: var(--brown-dark);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--brown-light);
+}
+
+main h2 {
+  font-size: 1.25rem;
+  color: var(--brown-mid);
+  margin: 1.5rem 0 0.75rem;
+}
+
+/* 料金プラン・角丸ボタン */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 700px) {
+  .price-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.price-card {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 4px 16px var(--shadow);
+  border: 1px solid rgba(139, 115, 85, 0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.price-card .plan-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+  margin-bottom: 0.5rem;
+}
+
+.price-card .plan-time {
+  font-size: 0.95rem;
+  color: var(--brown-mid);
+  margin-bottom: 0.25rem;
+}
+
+.price-card .plan-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brown-light);
+  margin-bottom: 1rem;
+}
+
+.price-card .plan-desc {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* 問診票ページ */
+.silhouette-section {
+  margin-bottom: 2rem;
+}
+
+.silhouette-section h2 {
+  margin-bottom: 1rem;
+}
+
+.silhouette-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.silhouette-box {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 4px 16px var(--shadow);
+  text-align: center;
+}
+
+.silhouette-box figcaption {
+  font-size: 0.9rem;
+  color: var(--brown-mid);
+  margin-top: 0.5rem;
+}
+
+.silhouette-box svg {
+  display: block;
+  max-width: 200px;
+  height: auto;
+}
+
+.form-block {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 12px var(--shadow);
+  border-left: 4px solid var(--brown-light);
+}
+
+.form-block .block-number {
+  font-weight: 700;
+  color: var(--brown-dark);
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+}
+
+.form-block label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--brown-mid);
+  margin-top: 0.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.form-block input[type="text"],
+.form-block textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--brown-light);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+}
+
+.form-block textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* 問い合わせフォーム */
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  color: var(--brown-mid);
+  margin-top: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.contact-form label .required {
+  color: #a52a2a;
+  font-size: 0.85em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+  width: 100%;
+  max-width: 480px;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--brown-light);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form .submit-wrap {
+  margin-top: 1.5rem;
+}
+
+.contact-form button[type="submit"] {
+  background: var(--brown-mid);
+  color: var(--beige-light);
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.contact-form button[type="submit"]:hover {
+  background: var(--brown-dark);
+}
+
+/* トップページ・紹介 */
+.intro-lead {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+  margin-bottom: 1rem;
+}
+
+.intro-note {
+  color: var(--brown-mid);
+  margin-top: 1.5rem;
+}
+
+.intro-note p {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== ポートフォリオ用サンプルの明示バンド ===== */
+.demo-banner {
+  background: #3d2914;
+  color: #f0e6d6;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 200;
+}
+
+.demo-banner p {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.demo-banner strong {
+  color: #ffd9a0;
+}
+
+.demo-banner a {
+  color: #ffd9a0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+.demo-footer-note {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.demo-footer-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ===== 送信無効フォームの注記 ===== */
+.form-disabled-note {
+  background: rgba(61, 41, 20, 0.08);
+  border-left: 4px solid #8b6f47;
+  padding: 0.9rem 1.1rem;
+  margin: 1.2rem 0 1.6rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  border-radius: 3px;
+}
+
+.demo-form-result {
+  margin-top: 1rem;
+  padding: 0.9rem 1.1rem;
+  background: rgba(61, 41, 20, 0.12);
+  border-left: 4px solid #5c4033;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+/* ===== 店舗情報テーブル ===== */
+.shop-table {
+  width: 100%;
+  max-width: 640px;
+  border-collapse: collapse;
+  margin: 1rem 0 1.8rem;
+  font-size: 0.93rem;
+}
+
+.shop-table th,
+.shop-table td {
+  border-bottom: 1px solid rgba(92, 64, 51, 0.25);
+  padding: 0.7rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.shop-table th {
+  width: 8em;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+/* ===== 箇条書き ===== */
+.about-list {
+  margin: 0.8rem 0 1.6rem 1.2rem;
+  padding: 0;
+  font-size: 0.93rem;
+  line-height: 1.9;
+}
+
+.about-list li {
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 600px) {
+  .demo-banner {
+    font-size: 0.8rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .shop-table th {
+    width: 6.5em;
+  }
+}
