@@ -992,3 +992,95 @@ a {
     scroll-margin-top: 66px;
   }
 }
+
+/* ── プライバシーポリシーとフォームの同意欄（2026-09-04 追加） ── */
+.policy-inner {
+  max-width: 760px;
+}
+
+.policy-date {
+  font-size: 0.86rem;
+  color: #5a6478;
+  padding-bottom: 1.6rem;
+  margin-bottom: 2.2rem;
+  border-bottom: 1px solid #dfe3ea;
+}
+
+.policy-block {
+  margin-bottom: 2.2rem;
+}
+
+.policy-block h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.7rem;
+  color: #0f2a5e;
+}
+
+.policy-block p,
+.policy-block li {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: #3a4256;
+}
+
+.policy-block p + p {
+  margin-top: 0.7rem;
+}
+
+.policy-block ul {
+  margin: 0.6rem 0 0.8rem 1.2rem;
+}
+
+.policy-block a {
+  color: #0055aa;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-consent-text {
+  margin: 1.3rem 0 0;
+  padding: 0.9rem 1.05rem;
+  border-left: 3px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.86rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.form-consent-text a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+.footer-links {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.82rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 完了ページ：フッターが必ず1画面下へ押し出されないようにする */
+body.thanks-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.thanks-body .thanks-page {
+  flex: 1 0 auto;
+  min-height: 0;
+}
