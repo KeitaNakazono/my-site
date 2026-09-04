@@ -1,0 +1,113 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
+const hours = [
+  { day: '月曜日', open: '10:00 - 18:00', takeout: '10:00 - 17:30' },
+  { day: '火曜日', open: '10:00 - 18:00', takeout: '10:00 - 17:30' },
+  { day: '水曜日', open: '定休日', takeout: '－' },
+  { day: '木曜日', open: '10:00 - 18:00', takeout: '10:00 - 17:30' },
+  { day: '金曜日', open: '10:00 - 20:00', takeout: '10:00 - 19:30' },
+  { day: '土曜日', open: '9:00 - 20:00', takeout: '9:00 - 19:30' },
+  { day: '日曜日', open: '9:00 - 17:00', takeout: '9:00 - 16:30' },
+];
+---
+
+<Base
+  title="営業時間・アクセス"
+  description="喫茶ひとときの営業時間、定休日、駐車場、最寄りの電停からの道順をまとめています。"
+  current="access"
+>
+  <section class="hero">
+    <div class="wrap">
+      <h1>営業時間・アクセス</h1>
+      <p class="lead">水曜定休です。金曜と土曜は20時まで開けています。</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>営業時間</h2>
+        <p>テイクアウトの受付は、閉店の30分前までです。</p>
+      </div>
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th scope="col">曜日</th>
+            <th scope="col">店内</th>
+            <th scope="col">持ち帰り</th>
+          </tr>
+        </thead>
+        <tbody>
+          {hours.map((h) => (
+            <tr>
+              <th scope="row">{h.day}</th>
+              <td>{h.open}</td>
+              <td>{h.takeout}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>行き方</h2>
+        <p>市電「◯◯通」電停から徒歩3分です。</p>
+      </div>
+
+      <figure class="map-figure">
+        <svg viewBox="0 0 640 300" role="img" aria-labelledby="mapTitle mapDesc" width="100%" style="display:block;width:100%;height:auto">
+          <title id="mapTitle">喫茶ひとときの周辺図</title>
+          <desc id="mapDesc">
+            市電「◯◯通」電停から南へ進み、2つ目の角を左に曲がると右手にあります。
+          </desc>
+          <rect x="0" y="0" width="640" height="300" fill="#eef1e9" />
+          <rect x="0" y="120" width="640" height="42" fill="#ffffff" />
+          <rect x="250" y="0" width="38" height="300" fill="#ffffff" />
+          <line x1="0" y1="141" x2="640" y2="141" stroke="#c9cfc0" stroke-width="2" stroke-dasharray="14 10" />
+          <circle cx="120" cy="141" r="11" fill="#55684f" />
+          <text x="120" y="176" font-size="15" text-anchor="middle" fill="#3f4a3a">◯◯通 電停</text>
+          <rect x="296" y="196" width="120" height="62" rx="8" fill="#7a5c3e" />
+          <text x="356" y="226" font-size="16" text-anchor="middle" fill="#fff8ee">喫茶</text>
+          <text x="356" y="246" font-size="16" text-anchor="middle" fill="#fff8ee">ひととき</text>
+          <path d="M120 141 L269 141 L269 214 L292 214" fill="none" stroke="#a3402f" stroke-width="4" stroke-dasharray="9 7" />
+          <polygon points="292,214 282,208 282,220" fill="#a3402f" />
+          <rect x="430" y="60" width="96" height="52" rx="6" fill="#dfe3d6" />
+          <text x="478" y="91" font-size="14" text-anchor="middle" fill="#5d6553">◯◯郵便局</text>
+          <text x="196" y="112" font-size="14" text-anchor="middle" fill="#7a7f70">徒歩3分</text>
+        </svg>
+        <figcaption>
+          周辺図は自主制作サンプル用に作った簡易図です。実案件では地図サービスの埋め込みに差し替えます。
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>店舗情報</h2>
+      </div>
+      <table class="info-table">
+        <tbody>
+          <tr><th scope="row">店名</th><td>喫茶ひととき（架空の店舗です）</td></tr>
+          <tr><th scope="row">住所</th><td>鹿児島県◯◯市◯◯町1-2-3 ◯◯ビル1F</td></tr>
+          <tr><th scope="row">電話</th><td>099-000-0000</td></tr>
+          <tr><th scope="row">定休日</th><td>水曜日（祝日の場合は営業し、翌日休み）</td></tr>
+          <tr><th scope="row">席数</th><td>カウンター6席・テーブル6席</td></tr>
+          <tr><th scope="row">駐車場</th><td>店の裏に2台</td></tr>
+          <tr><th scope="row">支払い</th><td>現金・各種QR決済</td></tr>
+        </tbody>
+      </table>
+
+      <div class="cta-row">
+        <a class="btn btn--primary" href={`${base}/takeout/`}>テイクアウトを予約する</a>
+        <a class="btn btn--ghost" href={`${base}/`}>ホームに戻る</a>
+      </div>
+    </div>
+  </section>
+</Base>

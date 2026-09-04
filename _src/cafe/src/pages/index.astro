@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+---
+
+<Base
+  title="ホーム"
+  description="鹿児島の小さな喫茶店「喫茶ひととき」の自主制作サンプルサイト。テイクアウトの注文につながる導線を検証しました。"
+  current="home"
+>
+  <section class="hero">
+    <div class="wrap">
+      <h1>今日の焼き菓子、<br />持ち帰れます。</h1>
+      <p class="lead">
+        鹿児島の路地裏にある、席が12しかない小さな喫茶店です。
+        店内でゆっくりしていただくのはもちろん、焼き菓子と珈琲はその場でお持ち帰りいただけます。
+      </p>
+
+      <dl class="facts">
+        <div class="fact">
+          <dt>本日の営業</dt>
+          <dd><strong>10:00 - 18:00</strong><br />水曜定休</dd>
+        </div>
+        <div class="fact">
+          <dt>テイクアウト</dt>
+          <dd><strong>10:00 - 17:30</strong><br />予約なしでも受け取れます</dd>
+        </div>
+        <div class="fact">
+          <dt>場所</dt>
+          <dd>市電「◯◯通」電停から徒歩3分<br />専用駐車場2台</dd>
+        </div>
+        <div class="fact">
+          <dt>お電話</dt>
+          <dd><strong>099-000-0000</strong><br />当日予約もこちらへ</dd>
+        </div>
+      </dl>
+
+      <div class="cta-row">
+        <a class="btn btn--primary" href={`${base}/takeout/`}>テイクアウトを予約する</a>
+        <a class="btn btn--ghost" href={`${base}/menu/`}>メニューを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>持ち帰りで人気のもの</h2>
+        <p>迷ったときは、この3つから選んでいただくことが多いです。</p>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <h3>焼き菓子</h3>
+          <ul class="menu-list">
+            <li><span>スコーン（プレーン）<span class="badge-takeout">人気</span></span><span class="price">280円</span></li>
+            <li><span>レモンのパウンドケーキ</span><span class="price">320円</span></li>
+            <li><span>塩バタークッキー 5枚</span><span class="price">450円</span></li>
+          </ul>
+        </div>
+        <div class="menu-card">
+          <h3>珈琲</h3>
+          <ul class="menu-list">
+            <li><span>本日の珈琲（ホット）</span><span class="price">450円</span></li>
+            <li><span>水出しアイス珈琲<span class="badge-takeout">人気</span></span><span class="price">500円</span></li>
+            <li><span>豆 100g（お持ち帰り）</span><span class="price">780円</span></li>
+          </ul>
+        </div>
+        <div class="menu-card">
+          <h3>詰め合わせ</h3>
+          <ul class="menu-list">
+            <li><span>焼き菓子 小箱（4個）</span><span class="price">1,180円</span></li>
+            <li><span>焼き菓子 大箱（8個）</span><span class="price">2,200円</span></li>
+            <li><span>珈琲＋菓子のセット</span><span class="price">980円</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn--ghost" href={`${base}/menu/`}>店内メニューもすべて見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>受け取りまでの流れ</h2>
+        <p>お待たせしないよう、3日前までのご予約をおすすめしています。</p>
+      </div>
+      <ol class="steps">
+        <li>お電話または予約フォームで、受け取り日時と品物をお知らせください。</li>
+        <li>店から確認のご連絡をします。詰め合わせは前日までにご相談ください。</li>
+        <li>当日、レジで名前をお伝えください。お支払いは受け取り時です。</li>
+      </ol>
+      <div class="cta-row">
+        <a class="btn btn--primary" href={`${base}/takeout/`}>予約フォームへ</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>店のこと</h2>
+      </div>
+      <p>
+        2019年から、この場所で店を開けています。豆は鹿児島市内の焙煎所から週に2回届くものを使い、
+        焼き菓子は毎朝店で焼いています。カウンター6席とテーブル6席の小さな店ですが、
+        本を読んでいかれる方、仕事の合間に寄られる方、それぞれの時間を過ごしていただけたらと思っています。
+      </p>
+      <div class="cta-row">
+        <a class="btn btn--ghost" href={`${base}/access/`}>営業時間・アクセス</a>
+      </div>
+    </div>
+  </section>
+</Base>

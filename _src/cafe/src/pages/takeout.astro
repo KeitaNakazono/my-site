@@ -1,0 +1,260 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+---
+
+<Base
+  title="テイクアウト予約"
+  description="喫茶ひとときのテイクアウト予約ページ。受け取り日時と品物を選んでお申し込みいただけます。"
+  current="takeout"
+>
+  <section class="hero">
+    <div class="wrap">
+      <h1>テイクアウトのご予約</h1>
+      <p class="lead">
+        予約なしでもお渡しできますが、詰め合わせと10個以上のご注文は<strong>3日前まで</strong>にご予約ください。
+        お急ぎの場合はお電話（099-000-0000）が確実です。
+      </p>
+      <dl class="facts">
+        <div class="fact">
+          <dt>受け取り時間</dt>
+          <dd><strong>10:00 - 17:30</strong></dd>
+        </div>
+        <div class="fact">
+          <dt>お支払い</dt>
+          <dd>受け取り時に店頭で<br />現金・各種QR決済</dd>
+        </div>
+        <div class="fact">
+          <dt>キャンセル</dt>
+          <dd>前日までにご連絡ください</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>予約フォーム</h2>
+        <p>入力いただいた内容を確認し、店から折り返しご連絡します。</p>
+      </div>
+
+      <form class="reserve-form" id="reserveForm" novalidate>
+        <div class="field">
+          <label for="name">お名前 <span class="req">必須</span></label>
+          <input type="text" id="name" name="name" autocomplete="name" required />
+        </div>
+
+        <div class="field">
+          <label for="tel">お電話番号 <span class="req">必須</span></label>
+          <input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" required />
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="date">受け取り日 <span class="req">必須</span></label>
+            <input type="date" id="date" name="date" required />
+          </div>
+          <div class="field">
+            <label for="time">受け取り時間 <span class="req">必須</span></label>
+            <select id="time" name="time" required>
+              <option value="">選んでください</option>
+              <option>10:00 - 11:00</option>
+              <option>11:00 - 13:00</option>
+              <option>13:00 - 15:00</option>
+              <option>15:00 - 17:30</option>
+            </select>
+          </div>
+        </div>
+
+        <fieldset class="field">
+          <legend>ご注文の品 <span class="req">必須</span></legend>
+          <div class="check-grid">
+            <label><input type="checkbox" name="item" value="スコーン" /> スコーン</label>
+            <label><input type="checkbox" name="item" value="パウンドケーキ" /> パウンドケーキ</label>
+            <label><input type="checkbox" name="item" value="クッキー" /> 塩バタークッキー</label>
+            <label><input type="checkbox" name="item" value="珈琲" /> 珈琲（ドリンク）</label>
+            <label><input type="checkbox" name="item" value="珈琲豆" /> 珈琲豆 100g</label>
+            <label><input type="checkbox" name="item" value="詰め合わせ" /> 焼き菓子の詰め合わせ</label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="note">数量・ご要望</label>
+          <textarea id="note" name="note" rows="4" placeholder="例：スコーン3個、詰め合わせ小箱1つ"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary">この内容で予約する</button>
+
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>受け取りまでの流れ</h2>
+      </div>
+      <ol class="steps">
+        <li>フォームまたはお電話でご予約ください。</li>
+        <li>店から確認のご連絡をします（当日中）。</li>
+        <li>当日、レジでお名前をお伝えください。お支払いは受け取り時です。</li>
+      </ol>
+      <div class="cta-row">
+        <a class="btn btn--ghost" href={`${base}/menu/`}>メニューに戻る</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .reserve-form {
+    font-family: "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+    background: #fffdf9;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    display: grid;
+    gap: 1.1rem;
+    max-width: 640px;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  label,
+  legend {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .req {
+    font-size: 0.68rem;
+    background: var(--accent);
+    color: #fff8ee;
+    border-radius: 3px;
+    padding: 0.05rem 0.35rem;
+    margin-left: 0.3rem;
+    vertical-align: middle;
+  }
+
+  input,
+  select,
+  textarea {
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.65rem 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    width: 100%;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 2px solid var(--accent-soft);
+    outline-offset: 1px;
+  }
+
+  fieldset {
+    border: 0;
+  }
+
+  .check-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  .check-grid label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--paper-2);
+    border-radius: 8px;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.92rem;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .check-grid input {
+    width: auto;
+  }
+
+  button.btn {
+    cursor: pointer;
+    font-size: 1rem;
+    justify-self: start;
+  }
+
+  .form-note {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin: 0;
+    min-height: 1.2em;
+  }
+
+  .form-note.is-error {
+    color: #a3402f;
+  }
+
+  .form-note.is-ok {
+    color: var(--leaf);
+  }
+
+  @media (max-width: 620px) {
+    .field-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('reserveForm');
+    var note = document.getElementById('formNote');
+    if (!form || !note) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      note.className = 'form-note';
+
+      var name = form.querySelector('#name').value.trim();
+      var tel = form.querySelector('#tel').value.trim();
+      var date = form.querySelector('#date').value;
+      var time = form.querySelector('#time').value;
+      var items = form.querySelectorAll('input[name="item"]:checked');
+
+      var missing = [];
+      if (!name) missing.push('お名前');
+      if (!tel) missing.push('お電話番号');
+      if (!date) missing.push('受け取り日');
+      if (!time) missing.push('受け取り時間');
+      if (items.length === 0) missing.push('ご注文の品');
+
+      if (missing.length > 0) {
+        note.classList.add('is-error');
+        note.textContent = missing.join('、') + ' を入力してください。';
+        return;
+      }
+
+      note.classList.add('is-ok');
+      note.textContent =
+        'これは自主制作サンプルのため、実際には送信されません。入力チェックが通ったところまでを再現しています。' +
+        '実案件では、ここからメール送信またはフォームサービスへ接続します。';
+    });
+  })();
+</script>

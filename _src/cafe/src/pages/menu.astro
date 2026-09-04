@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
+const sections = [
+  {
+    title: '珈琲・お茶',
+    note: '豆はすべて鹿児島市内の焙煎所から届いたものです。',
+    items: [
+      { name: '本日の珈琲（ホット）', price: '450円', takeout: true },
+      { name: '水出しアイス珈琲', price: '500円', takeout: true },
+      { name: 'カフェオレ', price: '520円', takeout: true },
+      { name: 'ほうじ茶ラテ', price: '520円', takeout: true },
+      { name: '紅茶（ポット）', price: '480円', takeout: false },
+    ],
+  },
+  {
+    title: '焼き菓子',
+    note: '毎朝店で焼いています。売り切れの日もあります。',
+    items: [
+      { name: 'スコーン（プレーン）', price: '280円', takeout: true },
+      { name: 'スコーン（紅茶）', price: '300円', takeout: true },
+      { name: 'レモンのパウンドケーキ', price: '320円', takeout: true },
+      { name: '塩バタークッキー 5枚', price: '450円', takeout: true },
+      { name: '季節のタルト', price: '520円', takeout: true },
+    ],
+  },
+  {
+    title: '軽食',
+    note: '11:00からのご提供です。店内のみ。',
+    items: [
+      { name: '厚切りトースト（あんバター）', price: '580円', takeout: false },
+      { name: 'たまごサンド', price: '680円', takeout: false },
+      { name: '本日のスープとパン', price: '750円', takeout: false },
+    ],
+  },
+  {
+    title: 'お持ち帰り専用',
+    note: '詰め合わせは3日前までにご予約ください。',
+    items: [
+      { name: '珈琲豆 100g', price: '780円', takeout: true },
+      { name: '焼き菓子 小箱（4個）', price: '1,180円', takeout: true },
+      { name: '焼き菓子 大箱（8個）', price: '2,200円', takeout: true },
+      { name: '珈琲＋菓子のセット', price: '980円', takeout: true },
+    ],
+  },
+];
+---
+
+<Base
+  title="メニュー"
+  description="喫茶ひとときのメニュー。珈琲、焼き菓子、軽食、お持ち帰り専用の詰め合わせを掲載しています。"
+  current="menu"
+>
+  <section class="hero">
+    <div class="wrap">
+      <h1>メニュー</h1>
+      <p class="lead">
+        価格はすべて税込です。<span class="badge-takeout">持ち帰り可</span> のついたものは、お持ち帰りいただけます。
+      </p>
+    </div>
+  </section>
+
+  {sections.map((s) => (
+    <section class="block">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>{s.title}</h2>
+          <p>{s.note}</p>
+        </div>
+        <div class="menu-card">
+          <ul class="menu-list">
+            {s.items.map((i) => (
+              <li>
+                <span>
+                  {i.name}
+                  {i.takeout && <span class="badge-takeout">持ち帰り可</span>}
+                </span>
+                <span class="price">{i.price}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="block">
+    <div class="wrap">
+      <div class="cta-row">
+        <a class="btn btn--primary" href={`${base}/takeout/`}>テイクアウトを予約する</a>
+        <a class="btn btn--ghost" href={`${base}/access/`}>営業時間・アクセス</a>
+      </div>
+    </div>
+  </section>
+</Base>
