@@ -1,12 +1,12 @@
 /* 喫茶ひととき - 共通スタイル（自主制作サンプル） */
 :root {
   --ink: #2f2a24;
-  --ink-soft: #5d564c;
+  --ink-soft: #4c453b;
   --paper: #fbf7f0;
   --paper-2: #f2ebe0;
   --line: #e2d8c8;
   --accent: #7a5c3e;
-  --accent-soft: #a98a63;
+  --accent-soft: #8a6a45;
   --leaf: #55684f;
   --shadow: rgba(80, 62, 40, 0.12);
   --radius: 14px;
@@ -361,7 +361,7 @@ section.block:nth-of-type(even) {
 
 .map-figure figcaption {
   font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--ink-soft);
   padding: 0.6rem 0.9rem;
   background: #fffdf9;
@@ -409,8 +409,8 @@ section.block:nth-of-type(even) {
 
 .footer-note {
   margin-top: 0.8rem;
-  color: #b9ac99;
-  font-size: 0.78rem;
+  color: #cfc4b4;
+  font-size: 0.8rem;
   line-height: 1.7;
 }
 
@@ -464,4 +464,12 @@ section.block:nth-of-type(even) {
     gap: 0.9rem;
     font-size: 0.82rem;
   }
+}
+
+/* キーボード操作時のフォーカス（2026-09-04 追加） */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #8a5a1e;
+  outline-offset: 2px;
+  border-radius: 3px;
 }

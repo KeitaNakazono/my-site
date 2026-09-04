@@ -1,10 +1,10 @@
 /*
  * くらしの雑貨 てらす（自主制作サンプル）
  *
- * 店主が自分で更新できる構成を再現しています。
- * ここでは data/*.json を読み込んでいますが、実案件では
- * microCMS 等のヘッドレスCMSの API エンドポイントに差し替えるだけで、
- * 表示側のコードは変えずに運用へ移せます。
+ * お知らせと商品を、ページ本体から切り離したデータファイルで管理する構成です。
+ * ここでは data/*.json を読み込んでいます。実案件では、この読み込み先を
+ * microCMS 等のヘッドレスCMS へ接続すると、お店の方がブラウザの管理画面から
+ * 更新できるようになります（API接続とデータ変換の実装は別途必要です）。
  */
 (function () {
   'use strict';
@@ -32,7 +32,7 @@
     var items = (data && data.items) || [];
     if (limit) items = items.slice(0, limit);
     if (items.length === 0) {
-      root.innerHTML = '<p class="empty">お知らせはまだありません。</p>';
+      root.innerHTML = '<li class="news-item"><p class="empty">お知らせはまだありません。</p></li>';
       return;
     }
     root.innerHTML = items
@@ -81,7 +81,8 @@
       fetchJson(newsRoot.getAttribute('data-src'))
         .then(function (d) { renderNews(newsRoot, d, limit); })
         .catch(function () {
-          newsRoot.innerHTML = '<p class="empty">お知らせを読み込めませんでした。</p>';
+          newsRoot.innerHTML =
+            '<li class="news-item"><p class="empty">お知らせを読み込めませんでした。時間をおいて開き直してください。</p></li>';
         });
     }
 

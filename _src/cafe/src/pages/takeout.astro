@@ -18,7 +18,7 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
       <dl class="facts">
         <div class="fact">
           <dt>受け取り時間</dt>
-          <dd><strong>10:00 - 17:30</strong></dd>
+          <dd><strong>10:00 - 17:30</strong><br />金・土は19:30まで</dd>
         </div>
         <div class="fact">
           <dt>お支払い</dt>
@@ -26,7 +26,7 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
         </div>
         <div class="fact">
           <dt>キャンセル</dt>
-          <dd>前日までにご連絡ください</dd>
+          <dd>受け取り日の前日までに<br />お電話ください</dd>
         </div>
       </dl>
     </div>
@@ -36,38 +36,49 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
     <div class="wrap">
       <div class="section-head">
         <h2>予約フォーム</h2>
-        <p>入力いただいた内容を確認し、店から折り返しご連絡します。</p>
+        <p>受け取り日時とご注文の品をお知らせください。</p>
       </div>
+
+      <p class="demo-notice" role="note">
+        <strong>ここから先は自主制作サンプルのデモです。</strong>
+        このフォームは<strong>どこにも送信されません</strong>。入力内容がどこにも保存・送信されないことを確認したうえで、
+        入力チェックの動きだけをお試しください。実際のご依頼では、ここからメール送信またはフォームサービスへ接続します。
+        個人情報は入力しないでください。
+      </p>
 
       <form class="reserve-form" id="reserveForm" novalidate>
         <div class="field">
           <label for="name">お名前 <span class="req">必須</span></label>
-          <input type="text" id="name" name="name" autocomplete="name" required />
+          <input type="text" id="name" name="name" autocomplete="off" required aria-describedby="nameErr" />
+          <p class="field-err" id="nameErr"></p>
         </div>
 
         <div class="field">
           <label for="tel">お電話番号 <span class="req">必須</span></label>
-          <input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" required />
+          <input type="tel" id="tel" name="tel" autocomplete="off" inputmode="tel" required aria-describedby="telErr" />
+          <p class="field-err" id="telErr"></p>
         </div>
 
         <div class="field-row">
           <div class="field">
             <label for="date">受け取り日 <span class="req">必須</span></label>
-            <input type="date" id="date" name="date" required />
+            <input type="date" id="date" name="date" required aria-describedby="dateErr" />
+            <p class="field-err" id="dateErr"></p>
           </div>
           <div class="field">
             <label for="time">受け取り時間 <span class="req">必須</span></label>
-            <select id="time" name="time" required>
+            <select id="time" name="time" required aria-describedby="timeErr">
               <option value="">選んでください</option>
               <option>10:00 - 11:00</option>
               <option>11:00 - 13:00</option>
               <option>13:00 - 15:00</option>
               <option>15:00 - 17:30</option>
             </select>
+            <p class="field-err" id="timeErr"></p>
           </div>
         </div>
 
-        <fieldset class="field">
+        <fieldset class="field" aria-describedby="itemErr">
           <legend>ご注文の品 <span class="req">必須</span></legend>
           <div class="check-grid">
             <label><input type="checkbox" name="item" value="スコーン" /> スコーン</label>
@@ -77,6 +88,7 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
             <label><input type="checkbox" name="item" value="珈琲豆" /> 珈琲豆 100g</label>
             <label><input type="checkbox" name="item" value="詰め合わせ" /> 焼き菓子の詰め合わせ</label>
           </div>
+          <p class="field-err" id="itemErr"></p>
         </fieldset>
 
         <div class="field">
@@ -84,7 +96,7 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
           <textarea id="note" name="note" rows="4" placeholder="例：スコーン3個、詰め合わせ小箱1つ"></textarea>
         </div>
 
-        <button type="submit" class="btn btn--primary">この内容で予約する</button>
+        <button type="submit" class="btn btn--primary">入力内容を確認する（送信されません）</button>
 
         <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
       </form>
@@ -106,9 +118,139 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
       </div>
     </div>
   </section>
+
+  <script slot="page-script" is:inline>
+    (function () {
+      'use strict';
+
+      var form = document.getElementById('reserveForm');
+      var note = document.getElementById('formNote');
+      if (!form || !note) return;
+
+      var CLOSED_DAY = 3; // 水曜定休
+
+      function q(sel) {
+        return form.querySelector(sel);
+      }
+
+      function setErr(inputEl, errId, msg) {
+        var errEl = document.getElementById(errId);
+        if (errEl) errEl.textContent = msg || '';
+        if (inputEl) {
+          if (msg) {
+            inputEl.setAttribute('aria-invalid', 'true');
+          } else {
+            inputEl.removeAttribute('aria-invalid');
+          }
+        }
+      }
+
+      function todayStr() {
+        var d = new Date();
+        var m = String(d.getMonth() + 1).padStart(2, '0');
+        var day = String(d.getDate()).padStart(2, '0');
+        return d.getFullYear() + '-' + m + '-' + day;
+      }
+
+      var dateEl = q('#date');
+      if (dateEl) dateEl.min = todayStr();
+
+      function validate() {
+        var problems = [];
+
+        var nameEl = q('#name');
+        var nameMsg = nameEl.value.trim() ? '' : 'お名前を入力してください。';
+        setErr(nameEl, 'nameErr', nameMsg);
+        if (nameMsg) problems.push(nameEl);
+
+        var telEl = q('#tel');
+        var tel = telEl.value.trim();
+        var telMsg = '';
+        if (!tel) {
+          telMsg = 'お電話番号を入力してください。';
+        } else if (!/^[0-9()\-\s+]{10,}$/.test(tel)) {
+          telMsg = '電話番号は数字で10桁以上入力してください。';
+        }
+        setErr(telEl, 'telErr', telMsg);
+        if (telMsg) problems.push(telEl);
+
+        var dMsg = '';
+        if (!dateEl.value) {
+          dMsg = '受け取り日を選んでください。';
+        } else {
+          var parts = dateEl.value.split('-');
+          var picked = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+          var today = new Date();
+          today.setHours(0, 0, 0, 0);
+          if (picked < today) {
+            dMsg = '本日以降の日付を選んでください。';
+          } else if (picked.getDay() === CLOSED_DAY) {
+            dMsg = '水曜日は定休日です。別の日を選んでください。';
+          }
+        }
+        setErr(dateEl, 'dateErr', dMsg);
+        if (dMsg) problems.push(dateEl);
+
+        var timeEl = q('#time');
+        var tMsg = timeEl.value ? '' : '受け取り時間を選んでください。';
+        setErr(timeEl, 'timeErr', tMsg);
+        if (tMsg) problems.push(timeEl);
+
+        var checked = form.querySelectorAll('input[name="item"]:checked');
+        var firstCheck = form.querySelector('input[name="item"]');
+        var iMsg = checked.length > 0 ? '' : 'ご注文の品を1つ以上選んでください。';
+        setErr(null, 'itemErr', iMsg);
+        if (iMsg) problems.push(firstCheck);
+
+        return problems;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        note.className = 'form-note';
+
+        var problems = validate();
+
+        if (problems.length > 0) {
+          note.classList.add('is-error');
+          note.textContent = problems.length + '件、入力を確認してください。';
+          if (problems[0] && problems[0].focus) problems[0].focus();
+          return;
+        }
+
+        note.classList.add('is-ok');
+        note.textContent =
+          '入力チェックが通りました。これは自主制作サンプルのデモのため、内容はどこにも送信・保存されていません。';
+      });
+
+      form.addEventListener(
+        'blur',
+        function (e) {
+          if (e.target && e.target.id && ['name', 'tel', 'date', 'time'].indexOf(e.target.id) >= 0) {
+            validate();
+          }
+        },
+        true
+      );
+    })();
+  </script>
 </Base>
 
 <style>
+  .demo-notice {
+    font-family: "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    background: #fff5e6;
+    border: 1px solid #d8a45c;
+    border-left: 5px solid #b9762a;
+    border-radius: 10px;
+    padding: 0.95rem 1.1rem;
+    margin-bottom: 1.2rem;
+    max-width: 640px;
+    color: #4a3a24;
+  }
+
   .reserve-form {
     font-family: "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
     background: #fffdf9;
@@ -134,7 +276,7 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
   label,
   legend {
     font-size: 0.9rem;
-    color: var(--ink-soft);
+    color: #4c453b;
   }
 
   .req {
@@ -160,11 +302,28 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
     width: 100%;
   }
 
-  input:focus,
-  select:focus,
-  textarea:focus {
-    outline: 2px solid var(--accent-soft);
-    outline-offset: 1px;
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible {
+    outline: 3px solid #8a5a1e;
+    outline-offset: 2px;
+  }
+
+  [aria-invalid="true"] {
+    border-color: #a3402f;
+    background: #fff7f5;
+  }
+
+  .field-err {
+    font-size: 0.84rem;
+    color: #8c3323;
+    margin: 0;
+    min-height: 1em;
+  }
+
+  .field-err:empty {
+    min-height: 0;
   }
 
   fieldset {
@@ -175,7 +334,7 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 0.5rem;
-    margin-top: 0.4rem;
+    margin: 0.4rem 0;
   }
 
   .check-grid label {
@@ -201,18 +360,18 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
   }
 
   .form-note {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     line-height: 1.7;
     margin: 0;
     min-height: 1.2em;
   }
 
   .form-note.is-error {
-    color: #a3402f;
+    color: #8c3323;
   }
 
   .form-note.is-ok {
-    color: var(--leaf);
+    color: #3f5139;
   }
 
   @media (max-width: 620px) {
@@ -221,40 +380,3 @@ const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
     }
   }
 </style>
-
-<script is:inline>
-  (function () {
-    var form = document.getElementById('reserveForm');
-    var note = document.getElementById('formNote');
-    if (!form || !note) return;
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      note.className = 'form-note';
-
-      var name = form.querySelector('#name').value.trim();
-      var tel = form.querySelector('#tel').value.trim();
-      var date = form.querySelector('#date').value;
-      var time = form.querySelector('#time').value;
-      var items = form.querySelectorAll('input[name="item"]:checked');
-
-      var missing = [];
-      if (!name) missing.push('お名前');
-      if (!tel) missing.push('お電話番号');
-      if (!date) missing.push('受け取り日');
-      if (!time) missing.push('受け取り時間');
-      if (items.length === 0) missing.push('ご注文の品');
-
-      if (missing.length > 0) {
-        note.classList.add('is-error');
-        note.textContent = missing.join('、') + ' を入力してください。';
-        return;
-      }
-
-      note.classList.add('is-ok');
-      note.textContent =
-        'これは自主制作サンプルのため、実際には送信されません。入力チェックが通ったところまでを再現しています。' +
-        '実案件では、ここからメール送信またはフォームサービスへ接続します。';
-    });
-  })();
-</script>

@@ -80,7 +80,7 @@
 
         <div class="work-card">
           <div class="work-card-img">
-            <img src="/works/thumbs/seitai.jpg" width="880" height="550" loading="lazy" decoding="async" alt="整体屋 まんきちのトップページ。施術内容と予約ボタンが上部に並んでいる。">
+            <a href="/works/seitai/" aria-label="整体屋 まんきちのサイトを開く"><img src="/works/thumbs/seitai.jpg" width="880" height="550" loading="lazy" decoding="async" alt="整体屋 まんきちのトップページ。施術内容と予約ボタンが上部に並んでいる。"></a>
           </div>
           <div class="work-card-body">
             <p class="work-card-num">02</p>
@@ -100,16 +100,16 @@
 
         <div class="work-card">
           <div class="work-card-img">
-            <img src="/works/thumbs/cafe.jpg" width="880" height="550" loading="lazy" decoding="async" alt="喫茶ひとときのトップページ。営業時間とテイクアウトの受付時間が最初の画面に並んでいる。">
+            <a href="/works/cafe/" aria-label="喫茶ひとときのサイトを開く"><img src="/works/thumbs/cafe.jpg" width="880" height="550" loading="lazy" decoding="async" alt="喫茶ひとときのトップページ。営業時間とテイクアウトの受付時間が最初の画面に並んでいる。"></a>
           </div>
           <div class="work-card-body">
             <p class="work-card-num">03</p>
             <h2>地域カフェ向けホームページ「喫茶ひととき」<span class="work-kind work-kind--self">自主制作</span></h2>
             <p>
-              架空のカフェを想定した練習制作です。「テイクアウトの注文を増やすには何を最初に見せるべきか」というテーマで設計し、営業時間・テイクアウトの受付時間・場所・電話番号を最初の画面に集約しました。スマートフォンでは画面下に「メニュー」と「テイクアウト予約」を固定表示し、どのページからでも1タップで進めるようにしています。予約フォームは入力漏れをその場で知らせる作りにしました。
+              架空のカフェを想定した練習制作です。「テイクアウトの注文を増やすには何を最初に見せるべきか」というテーマで設計し、営業時間・テイクアウトの受付時間・場所・電話番号を最初の画面に集約しました。スマートフォンでは画面下に「メニュー」と「テイクアウト予約」を固定表示し、どのページからでも1タップで進めるようにしています。予約フォームは、入力欄を離れたときと送信操作のときに、足りない項目と定休日・過去日の選択を知らせます。
               <a class="work-link" href="/works/cafe/">サイトを見る →</a>
             
-              <span class="work-note">サイト生成ツールのAstroで、ヘッダーやフッターを1か所にまとめて4ページを書き出しています。ページが増えても直す場所が1か所で済む構成です。</span>
+              <span class="work-note">サイト生成ツールのAstroで、ヘッダーやフッターを1か所にまとめて4ページを書き出しています。ページが増えても直す場所が1か所で済む構成です。ソースは公開リポジトリに置いています。</span>
             </p>
             <div class="work-tags">
               <span class="tag">架空店舗</span>
@@ -123,22 +123,22 @@
 
         <div class="work-card">
           <div class="work-card-img">
-            <img src="/works/thumbs/zakka.jpg" width="880" height="550" loading="lazy" decoding="async" alt="くらしの雑貨 てらすのトップページ。商品・イベント・営業時間への入口が3つ並んでいる。">
+            <a href="/works/zakka/" aria-label="くらしの雑貨 てらすのサイトを開く"><img src="/works/thumbs/zakka.jpg" width="880" height="550" loading="lazy" decoding="async" alt="くらしの雑貨 てらすのトップページ。商品・イベント・営業時間への入口が3つ並んでいる。"></a>
           </div>
           <div class="work-card-body">
             <p class="work-card-num">04</p>
             <h2>地元雑貨店向けホームページ「くらしの雑貨 てらす」<span class="work-kind work-kind--self">自主制作</span></h2>
             <p>
-              架空の雑貨店を想定した練習制作です。「SNSはあるがホームページがない店舗」という設定で、SNSから来た方が最初の画面から「商品と在庫」「直近のイベント」「営業時間と場所」の3つへ直行できるようにしました。店主が自分で更新できることを前提にした構成です。
+              架空の雑貨店を想定した練習制作です。「SNSはあるがホームページがない店舗」という設定で、SNSから来た方が最初の画面から「商品と在庫」「直近のイベント」「営業時間と場所」の3つへ直行できるようにしました。お知らせと商品はデータファイルに分けて管理する構成にしました。
               <a class="work-link" href="/works/zakka/">サイトを見る →</a>
             
-              <span class="work-note">お知らせと商品はページ本体から切り離したデータファイルで管理しており、そこを書き換えるだけで表示が変わります。実際のご依頼では、この読み込み先をmicroCMSなどの管理画面に差し替えて、お店の方がブラウザから更新できる形にします。</span>
+              <span class="work-note">お知らせと商品を、ページ本体から切り離したデータファイルで管理しています。このサンプルの時点では、更新にはファイルの編集と再アップロードが必要です。実際のご依頼では、この読み込み先をmicroCMSなどの管理画面へ接続することで、お店の方がブラウザから更新できる形にできます（接続の実装は別途必要です）。</span>
             </p>
             <div class="work-tags">
               <span class="tag">架空店舗</span>
               <span class="tag">小売・雑貨</span>
-              <span class="tag">SNS連携</span>
-              <span class="tag">更新しやすい構成</span>
+              <span class="tag">SNSからの流入導線</span>
+              <span class="tag">データ分離</span>
               <span class="tag">HTML/CSS/JS</span>
             </div>
           </div>

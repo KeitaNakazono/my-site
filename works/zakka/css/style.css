@@ -1,11 +1,11 @@
 /* くらしの雑貨 てらす - 自主制作サンプル */
 :root {
   --ink: #33302c;
-  --ink-soft: #6b655d;
+  --ink-soft: #57514a;
   --bg: #fdfcfa;
   --bg-2: #f4f1ea;
   --line: #e4ded2;
-  --accent: #6d7f6a;
+  --accent: #5b6d58;
   --accent-dark: #56684f;
   --pop: #c9743f;
   --shadow: rgba(60, 55, 45, 0.1);
@@ -154,7 +154,7 @@ a {
 
 .quick .q-label {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   letter-spacing: 0.12em;
   color: var(--accent);
   margin-bottom: 0.15rem;
@@ -408,8 +408,8 @@ section.block.alt {
 
 .footer-note {
   margin-top: 0.8rem;
-  color: #aaa398;
-  font-size: 0.78rem;
+  color: #c8c2b8;
+  font-size: 0.8rem;
   line-height: 1.7;
 }
 
@@ -451,4 +451,12 @@ section.block.alt {
     gap: 0.9rem;
     font-size: 0.82rem;
   }
+}
+
+/* キーボード操作時のフォーカス（2026-09-04 追加） */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #33302c;
+  outline-offset: 2px;
+  border-radius: 3px;
 }
