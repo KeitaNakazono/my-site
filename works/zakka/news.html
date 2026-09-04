@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お知らせ｜くらしの雑貨 てらす（自主制作サンプル）</title>
+<meta name="description" content="くらしの雑貨 てらすからのお知らせ、入荷情報、イベント案内です。">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<p class="sample-bar">
+  これは中薗圭汰の<strong>自主制作サンプル</strong>です。「くらしの雑貨 てらす」は架空の店舗で、実在の店舗・団体とは関係ありません。
+  <a href="https://keita-works.com/works/">制作事例へ戻る</a>
+</p>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./">
+      くらしの雑貨 てらす
+      <small>KURASHI NO ZAKKA TERASU</small>
+    </a>
+    <nav class="nav" aria-label="メインメニュー">
+      <a href="./">ホーム</a>
+      <a href="items.html">商品</a>
+      <a href="news.html" aria-current="page">お知らせ</a>
+      <a href="about.html">店のこと</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>お知らせ</h1>
+      <p class="lead">入荷情報とイベントのご案内です。SNSでも同じ内容をお伝えしています。</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <ul class="news-list" data-news="0" data-src="data/news.json">
+        <li class="news-item"><p class="empty">読み込み中です…</p></li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn--ghost" href="items.html">商品を見る</a>
+        <a class="btn btn--primary" href="about.html">お店の場所を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="howto">
+        <h3>このページの更新のしくみ（サンプルの解説）</h3>
+        <p>
+          お知らせは <code>data/news.json</code> というデータファイルから読み込んでいます。
+          新しいお知らせを1つ足すと、このページとホームの両方に反映されます。
+          実際のご依頼では、この読み込み先を microCMS などの管理画面に差し替えるため、
+          お店の方が文章を打つだけで更新できるようになります。
+          ホームには新しい3件だけを出す、といった出し分けも表示側で調整できます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>くらしの雑貨 てらす（架空の店舗）</p>
+    <p>鹿児島県◯◯市◯◯本通り2-4-6 ／ 099-000-0000</p>
+    <p class="footer-note">
+      このサイトはWeb制作の練習として作った自主制作物です。住所・電話番号・営業時間・価格・商品はすべて架空のものです。
+      制作: <a href="https://keita-works.com/">中薗 圭汰</a>
+    </p>
+  </div>
+</footer>
+
+<script src="js/load.js"></script>
+</body>
+</html>

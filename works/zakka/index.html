@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの雑貨 てらす（自主制作サンプル）</title>
+<meta name="description" content="鹿児島の小さな雑貨店「くらしの雑貨 てらす」の自主制作サンプルサイト。SNSから来た方が商品とイベント情報をすぐ確認できる構成にしています。">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="くらしの雑貨 てらす（自主制作サンプル）">
+<meta property="og:description" content="SNSから来た方が商品・イベント情報をすぐ確認でき、店主が自分で更新できる構成のサンプルです。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<p class="sample-bar">
+  これは中薗圭汰の<strong>自主制作サンプル</strong>です。「くらしの雑貨 てらす」は架空の店舗で、実在の店舗・団体とは関係ありません。
+  <a href="https://keita-works.com/works/">制作事例へ戻る</a>
+</p>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./">
+      くらしの雑貨 てらす
+      <small>KURASHI NO ZAKKA TERASU</small>
+    </a>
+    <nav class="nav" aria-label="メインメニュー">
+      <a href="./" aria-current="page">ホーム</a>
+      <a href="items.html">商品</a>
+      <a href="news.html">お知らせ</a>
+      <a href="about.html">店のこと</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>Instagramで見たあの器、<br>お店にあります。</h1>
+      <p class="lead">
+        鹿児島の商店街にある小さな雑貨店です。器、布もの、木の道具を少しずつ置いています。
+        SNSで見かけたものが今あるかどうか、このページからすぐ確認できます。
+      </p>
+
+      <div class="quick">
+        <a href="items.html">
+          <span class="q-label">SNSで見た商品を探す</span>
+          <span class="q-main">取り扱い中の商品と在庫</span>
+        </a>
+        <a href="news.html">
+          <span class="q-label">直近のイベント</span>
+          <span class="q-main">9月13日「秋のうつわ市」</span>
+        </a>
+        <a href="about.html">
+          <span class="q-label">お店の場所と営業時間</span>
+          <span class="q-main">11:00 - 18:00 ／ 水曜定休</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>お知らせ</h2>
+        <p><a href="news.html">すべて見る →</a></p>
+      </div>
+      <ul class="news-list" data-news="3" data-src="data/news.json">
+        <li class="news-item"><p class="empty">読み込み中です…</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>いま置いているもの</h2>
+        <p><a href="items.html">すべて見る →</a></p>
+      </div>
+      <div class="item-grid" data-items data-src="data/items.json">
+        <p class="empty">読み込み中です…</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn--ghost" href="items.html">商品をすべて見る</a>
+        <a class="btn btn--primary" href="about.html">お店の場所を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>この店について</h2>
+      </div>
+      <p>
+        「毎日使うものを、少しだけいいものに」という考えで品物を選んでいます。
+        置いているのは、県内の作り手のものと、長く作られ続けている定番のものが半分ずつくらいです。
+        店主がひとりでやっている店なので、数はそれほど多くありません。
+        気になるものがあれば、SNSのメッセージからでもお気軽にお尋ねください。
+      </p>
+      <div class="cta-row">
+        <a class="btn btn--ghost" href="about.html">営業時間・アクセス</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>くらしの雑貨 てらす（架空の店舗）</p>
+    <p>鹿児島県◯◯市◯◯本通り2-4-6 ／ 099-000-0000</p>
+    <p class="footer-note">
+      このサイトはWeb制作の練習として作った自主制作物です。住所・電話番号・営業時間・価格・商品はすべて架空のものです。
+      制作: <a href="https://keita-works.com/">中薗 圭汰</a> ／ HTML・CSS・JavaScriptで制作。お知らせと商品はデータファイルから読み込んでいます。
+    </p>
+  </div>
+</footer>
+
+<script src="js/load.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>商品｜くらしの雑貨 てらす（自主制作サンプル）</title>
+<meta name="description" content="くらしの雑貨 てらすで取り扱っている商品と在庫の状況です。">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<p class="sample-bar">
+  これは中薗圭汰の<strong>自主制作サンプル</strong>です。「くらしの雑貨 てらす」は架空の店舗で、実在の店舗・団体とは関係ありません。
+  <a href="https://keita-works.com/works/">制作事例へ戻る</a>
+</p>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./">
+      くらしの雑貨 てらす
+      <small>KURASHI NO ZAKKA TERASU</small>
+    </a>
+    <nav class="nav" aria-label="メインメニュー">
+      <a href="./">ホーム</a>
+      <a href="items.html" aria-current="page">商品</a>
+      <a href="news.html">お知らせ</a>
+      <a href="about.html">店のこと</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>いま置いているもの</h1>
+      <p class="lead">
+        数が少ないものが多いため、在庫は目安です。取り置きもできますので、お電話かSNSのメッセージでご相談ください。
+        通信販売は行っていません。
+      </p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="item-grid" data-items data-src="data/items.json">
+        <p class="empty">読み込み中です…</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>お取り置きについて</h2>
+      </div>
+      <table class="info-table">
+        <tbody>
+          <tr><th scope="row">期間</th><td>ご連絡から3日間</td></tr>
+          <tr><th scope="row">方法</th><td>お電話またはSNSのメッセージで、商品名とお名前をお知らせください</td></tr>
+          <tr><th scope="row">お支払い</th><td>店頭で受け取り時にお願いします</td></tr>
+          <tr><th scope="row">通信販売</th><td>行っていません。店頭でのみのお取り扱いです</td></tr>
+        </tbody>
+      </table>
+      <div class="cta-row">
+        <a class="btn btn--primary" href="about.html">お店の場所を見る</a>
+        <a class="btn btn--ghost" href="news.html">お知らせを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="howto">
+        <h3>このページの更新のしくみ（サンプルの解説）</h3>
+        <p>
+          商品名・価格・在庫は <code>data/items.json</code> というデータファイルに分けてあり、
+          ページのHTMLを触らずに書き換えられます。実際のご依頼では、この読み込み先を
+          microCMS などの管理画面（ヘッドレスCMS）に差し替えます。
+          そうすると、お店の方がブラウザの管理画面から在庫や価格を直せるようになります。
+          表示側のプログラムはそのまま使えるため、あとからCMSを入れることもできます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>くらしの雑貨 てらす（架空の店舗）</p>
+    <p>鹿児島県◯◯市◯◯本通り2-4-6 ／ 099-000-0000</p>
+    <p class="footer-note">
+      このサイトはWeb制作の練習として作った自主制作物です。住所・電話番号・営業時間・価格・商品はすべて架空のものです。
+      制作: <a href="https://keita-works.com/">中薗 圭汰</a>
+    </p>
+  </div>
+</footer>
+
+<script src="js/load.js"></script>
+</body>
+</html>

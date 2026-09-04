@@ -1,0 +1,454 @@
+/* くらしの雑貨 てらす - 自主制作サンプル */
+:root {
+  --ink: #33302c;
+  --ink-soft: #6b655d;
+  --bg: #fdfcfa;
+  --bg-2: #f4f1ea;
+  --line: #e4ded2;
+  --accent: #6d7f6a;
+  --accent-dark: #56684f;
+  --pop: #c9743f;
+  --shadow: rgba(60, 55, 45, 0.1);
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.8;
+  -webkit-text-size-adjust: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent-dark);
+}
+
+.wrap {
+  width: min(1000px, 92vw);
+  margin-inline: auto;
+}
+
+.sample-bar {
+  background: var(--ink);
+  color: #f3efe8;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  padding: 0.55rem 0;
+  text-align: center;
+}
+
+.sample-bar a {
+  color: #dcc3a4;
+}
+
+/* ヘッダー */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(253, 252, 250, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 1.08rem;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.brand small {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  gap: 1.1rem;
+  font-size: 0.9rem;
+}
+
+.nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  color: var(--accent-dark);
+  border-bottom-color: var(--accent);
+}
+
+/* SNSから来た人向けの導入 */
+.hero {
+  background: linear-gradient(160deg, #f2efe6 0%, #e9e4d6 60%, #e2dcc9 100%);
+  padding: 2.6rem 0 2.2rem;
+}
+
+.hero h1 {
+  font-size: clamp(1.5rem, 5vw, 2.3rem);
+  line-height: 1.45;
+  margin-bottom: 0.7rem;
+}
+
+.hero .lead {
+  color: var(--ink-soft);
+  max-width: 34em;
+  margin-bottom: 1.4rem;
+}
+
+.quick {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.85rem;
+}
+
+.quick a {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.95rem 1.05rem;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: 0 4px 14px var(--shadow);
+  transition: transform 0.15s ease;
+}
+
+.quick a:hover {
+  transform: translateY(-2px);
+}
+
+.quick .q-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 0.15rem;
+}
+
+.quick .q-main {
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+/* セクション */
+section.block {
+  padding: 2.8rem 0;
+}
+
+section.block.alt {
+  background: var(--bg-2);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.4rem;
+}
+
+.section-head h2 {
+  font-size: clamp(1.2rem, 3.4vw, 1.5rem);
+  letter-spacing: 0.06em;
+}
+
+.section-head p {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+/* お知らせ（データ駆動） */
+.news-list {
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.news-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.05rem;
+}
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.25rem;
+}
+
+.news-tag {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.05rem 0.45rem;
+  font-size: 0.7rem;
+}
+
+.news-tag[data-tag="イベント"] {
+  background: var(--pop);
+}
+
+.news-tag[data-tag="入荷"] {
+  background: #6b7f9b;
+}
+
+.news-item h3 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.news-item p {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.empty {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+/* 商品 */
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.item-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-thumb {
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  background: var(--bg-2);
+}
+
+.item-body {
+  padding: 0.85rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.item-body h3 {
+  font-size: 1rem;
+}
+
+.item-body .price {
+  color: var(--pop);
+  font-size: 0.95rem;
+}
+
+.item-body p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.stock {
+  margin-top: auto;
+  font-size: 0.78rem;
+  color: var(--accent-dark);
+}
+
+.stock[data-stock="残りわずか"] {
+  color: var(--pop);
+}
+
+.stock[data-stock="取り寄せ"] {
+  color: var(--ink-soft);
+}
+
+/* テーブル */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.info-table th,
+.info-table td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.info-table tr:last-child th,
+.info-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.info-table th {
+  width: 8em;
+  background: var(--bg-2);
+  color: var(--ink-soft);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ボタン */
+.btn {
+  display: inline-block;
+  font-size: 0.94rem;
+  text-decoration: none;
+  padding: 0.72rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-dark);
+  transition: transform 0.15s ease;
+}
+
+.btn--primary {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--accent-dark);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.3rem;
+}
+
+/* 更新のしくみの説明（サンプル用） */
+.howto {
+  background: #fff;
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.howto h3 {
+  font-size: 0.98rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.howto code {
+  background: var(--bg-2);
+  border-radius: 4px;
+  padding: 0.05rem 0.35rem;
+  font-size: 0.86rem;
+}
+
+/* フッター */
+.site-footer {
+  margin-top: auto;
+  background: var(--ink);
+  color: #e6e1d8;
+  font-size: 0.86rem;
+  padding: 1.8rem 0 2.2rem;
+}
+
+.site-footer a {
+  color: #dcc3a4;
+}
+
+.footer-note {
+  margin-top: 0.8rem;
+  color: #aaa398;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 720px) {
+  .header-inner {
+    flex-wrap: wrap;
+    row-gap: 0.3rem;
+    padding-bottom: 0.45rem;
+  }
+
+  .brand {
+    font-size: 0.96rem;
+  }
+
+  .nav {
+    width: 100%;
+    gap: 1.1rem;
+    font-size: 0.86rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav a {
+    white-space: nowrap;
+  }
+
+  .info-table th {
+    width: 6.5em;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav {
+    gap: 0.9rem;
+    font-size: 0.82rem;
+  }
+}
