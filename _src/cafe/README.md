@@ -12,11 +12,22 @@ Astroで書き、ビルドした結果を `works/cafe/` へ置いています。
 ```
 cd _src/cafe
 npm ci
-npm run build
+npm run build          # ビルドのあと check-dist.mjs が自動で走る
 rm -rf ../../works/cafe
 mkdir -p ../../works/cafe
 cp -r dist/* ../../works/cafe/
 ```
+
+**`npm run build` は構造検査（`check-dist.mjs`）を含みます。検査に失敗したら配置しないでください。**
+検査だけ流したいときは `npm run check` です。検査する内容は次のとおりです。
+
+- `html` / `head` / `body` が各1個で、順序が正しいこと
+- `</html>` の後ろに中身が残っていないこと
+- `title` / `description` / `robots` が head の中にあること
+- `title` が途中で切れていないこと
+- `<script>` が body の中にあること
+- `</nav>` が `<main>` より前で閉じていること
+- ページ内の相互リンクが実在すること
 
 `astro.config.mjs` の `base` に `/works/cafe` を指定しているため、そのままのパスで動きます。
 

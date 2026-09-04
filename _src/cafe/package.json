@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "astro build && node check-dist.mjs",
+    "preview": "astro preview",
+    "check": "node check-dist.mjs"
   },
   "dependencies": {
     "astro": "^6.3.1"
