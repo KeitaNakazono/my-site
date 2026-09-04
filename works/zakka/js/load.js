@@ -59,9 +59,12 @@
     }
     root.innerHTML = items
       .map(function (i) {
+        var thumb = i.img
+          ? '<img class="item-img" src="' + esc(i.img) + '" width="160" height="120" loading="lazy" decoding="async" alt="' + esc(i.alt || i.name) + '">'
+          : '<span class="item-noimg" aria-hidden="true"></span>';
         return (
           '<article class="item-card">' +
-          '<div class="item-thumb" aria-hidden="true"><span style="font-size:2.6rem">' + esc(i.icon) + '</span></div>' +
+          '<div class="item-thumb">' + thumb + '</div>' +
           '<div class="item-body">' +
           '<h3>' + esc(i.name) + '</h3>' +
           '<p class="price">' + esc(i.price) + '</p>' +

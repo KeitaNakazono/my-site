@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120" role="img" aria-labelledby="t"><title id="t">そばちょこ3色のイラスト</title>
+<rect width="160" height="120" fill="#f4f1ea"/>
+<path d="M28 46 h34 l-5 34 h-24 z" fill="#8fa8bf"/>
+<ellipse cx="45" cy="46" rx="17" ry="5" fill="#a9bed1"/>
+<path d="M62 46 h34 l-5 34 h-24 z" fill="#c9a86a"/>
+<ellipse cx="79" cy="46" rx="17" ry="5" fill="#dcc08a"/>
+<path d="M96 46 h34 l-5 34 h-24 z" fill="#9aa98d"/>
+<ellipse cx="113" cy="46" rx="17" ry="5" fill="#b3c0a6"/>
+<ellipse cx="79" cy="86" rx="56" ry="5" fill="#e3dccc"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120" role="img" aria-labelledby="t"><title id="t">リネンのふきんのイラスト</title>
+<rect width="160" height="120" fill="#f4f1ea"/>
+<g transform="translate(28 18)">
+<rect x="0" y="0" width="104" height="84" rx="4" fill="#eae4d6" stroke="#cfc6b3" stroke-width="2"/>
+<line x1="26" y1="0" x2="26" y2="84" stroke="#d6cdb9" stroke-width="2"/>
+<line x1="78" y1="0" x2="78" y2="84" stroke="#d6cdb9" stroke-width="2"/>
+<line x1="0" y1="28" x2="104" y2="28" stroke="#d6cdb9" stroke-width="2"/>
+<line x1="0" y1="56" x2="104" y2="56" stroke="#d6cdb9" stroke-width="2"/>
+<path d="M0 68 Q 18 78 36 68 T 72 68 T 104 70" fill="none" stroke="#c3b9a2" stroke-width="2"/>
+</g>
+</svg>
